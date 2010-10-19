@@ -33,7 +33,7 @@ fi
 # Environment variablies
 export HISTCONTROL=ignoreboth
 export KOPIPEDIR=~/.kopipe      # kopipe(1)
-export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin:/bin:/home/cairnarvon/bin:/usr/local/sicstus4.1.2/bin
+export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin:/bin:~/bin
 export CDPATH=$CDPATH:.:~:~/Desktop:~/codans
 export EDITOR=vim
 export GIT_EDITOR=vim
@@ -44,9 +44,9 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias vi='vim'
 alias py2html='pygmentize -f html -O full,style=native'
-alias backup='rsync -a --delete --progress /home/cairnarvon /media/disk/'
+alias backup='rsync -a --delete --progress ~'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
-alias progscrape='/home/cairnarvon/codans/python/progscrape/progscrape.py --json --verify-trips --aborn --progress-bar /home/cairnarvon/prog.db'
+alias progscrape='progscrape --json --verify-trips --aborn --progress-bar ~/prog.db'
 
 # bash-builtins(7)
 if [ -f /etc/bash_completion ]; then
