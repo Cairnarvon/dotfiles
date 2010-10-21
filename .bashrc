@@ -20,9 +20,35 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
+
 # Prettier prompt
-PS1='[\[\e[2m\]$(date +%H:%M)\[\e[0m\]] ${debian_chroot:+($debian_chroot)}\[\e[1;31m\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\$ '
+
+case "`hostname`" in
+    feynman)
+        PS_COL="\e[1;31m"   # red!
+        ;;
+    madoka)
+        PS_COL="\e[1;32m"   # green!
+        ;;
+    fermi)
+        PS_COL="\e[1;33m"   # yellow!
+        ;;
+    einstein)
+        PS_COL="\e[1;0m"    # white!
+        ;;
+    *)
+        PS_COL="\e[1;44m"   # blue!
+        ;;
+esac
+
+if [ "`whoami`" == "root" ]; then
+    PS1='\n             ________\n     /\_/\  / \['$PS_COL'\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\n    ( ´-\`) <\n   /    |   \\\[________\e[A\e[8D\]'
+else
+    PS1='[\[\e[2m\]$(date +%H:%M)\[\e[0m\]] \['$PS_COL'\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\$ '
+fi
+
 PS2='\[\e[2m\]> \[\e[0m\]'
+
 
 # Colours for ls
 if [ "$TERM" != "dumb" ]; then
