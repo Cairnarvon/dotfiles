@@ -50,10 +50,11 @@ fi
 PS2='\[\e[2m\]> \[\e[0m\]'
 
 
-# Colours for ls
+# Colours for ls and grep
 if [ "$TERM" != "dumb" ]; then
     eval "`dircolors -b`"
     alias ls='ls --color=auto'
+    alias grep='grep --color'
 fi
 
 # Environment variablies
