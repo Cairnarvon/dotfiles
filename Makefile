@@ -2,7 +2,7 @@
 
 all: install
 
-install: vimrc bashrc wmiirc
+install: vimrc bashrc git wmiirc
 
 vimrc:
 	@[ -e ~/.vimrc ] && rm -i ~/.vimrc || true
@@ -15,6 +15,16 @@ bashrc:
 	@[ ! -e ~/.bashrc ] \
 		&& (ln -fs "`pwd`/.bashrc" ~/.bashrc && echo ".bashrc installed.") \
 		|| echo ".bashrc skipped."
+
+git:
+	@[ -e ~/.gitconfig ] && rm -i ~/.gitconfig || true
+	@[ ! -e ~/.gitconfig ] \
+		&& (ln -fs "`pwd`/.gitconfig" ~/.gitconfig && echo ".gitconfig installed.") \
+		|| echo ".gitconfig skipped."
+	@[ -e ~/.gitignore ] && rm -i ~/.gitignore || true
+	@[ ! -e ~/.gitignore ] \
+		&& (ln -fs "`pwd`/.gitignore" ~/.gitignore && echo ".gitignore installed.") \
+		|| echo ".gitignore skipped."
 
 wmiirc:
 	@[ ! -d ~/.wmii ] && mkdir ~/.wmii || true
