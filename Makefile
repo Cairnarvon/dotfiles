@@ -4,27 +4,13 @@ all: install
 
 install: vimrc bashrc git wmiirc
 
-vimrc:
-	@[ -e ~/.vimrc ] && rm -i ~/.vimrc || true
-	@[ ! -e ~/.vimrc ] \
-		&& (ln -fs "`pwd`/.vimrc" ~/.vimrc && echo ".vimrc installed.") \
-		|| echo ".vimrc skipped."
+vimrc bashrc gitconfig gitignore:
+	@[ -e ~/.$@ ] && rm -i ~/.$@ || true
+	@[ ! -e ~/.$@ ] \
+		&& (ln -fs "`pwd`/.$@" ~/.$@ && echo ".$@ installed.") \
+		|| echo ".$@ skipped."
 
-bashrc:
-	@[ -e ~/.bashrc ] && rm -i ~/.bashrc || true
-	@[ ! -e ~/.bashrc ] \
-		&& (ln -fs "`pwd`/.bashrc" ~/.bashrc && echo ".bashrc installed.") \
-		|| echo ".bashrc skipped."
-
-git:
-	@[ -e ~/.gitconfig ] && rm -i ~/.gitconfig || true
-	@[ ! -e ~/.gitconfig ] \
-		&& (ln -fs "`pwd`/.gitconfig" ~/.gitconfig && echo ".gitconfig installed.") \
-		|| echo ".gitconfig skipped."
-	@[ -e ~/.gitignore ] && rm -i ~/.gitignore || true
-	@[ ! -e ~/.gitignore ] \
-		&& (ln -fs "`pwd`/.gitignore" ~/.gitignore && echo ".gitignore installed.") \
-		|| echo ".gitignore skipped."
+git: gitconfig gitignore
 
 wmiirc:
 	@[ ! -d ~/.wmii ] && mkdir ~/.wmii || true
