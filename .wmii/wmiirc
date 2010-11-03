@@ -1,4 +1,4 @@
-#!/bin/dash -f
+#!/bin/bash -f
 # Configure wmii
 wmiiscript=wmiirc # For wmii.sh
 . wmii.sh
@@ -54,9 +54,39 @@ wmiir write /tagrules <<!
 /Gimp.*/ -> ~
 !
 
+# Gmail notification things
+if [ -e ~/.gmail ]; then
+    GMAIL_USER=$(head -n 1 ~/.gmail)
+    GMAIL_PASS=$(tail -n 1 ~/.gmail)
+fi
+GCOUNT=0
+
 # Status Bar Info
 status() {
     BAR=""
+
+    # If Gmail can be reached and has unread messages, display a notification
+    if [ ! -z "$GMAIL_USER" ]; then
+        if [ $GCOUNT -eq 0 ]; then
+            GMESS=$(wget -q -O - --http-user="$GMAIL_USER"        \
+                                 --http-password="$GMAIL_PASS"    \
+                         https://mail.google.com/mail/feed/atom | \
+                    sed -n 's#<fullcount>\([0-9]*\)</fullcount>#\1#p')
+    
+            if [ -z $GMESS ]; then
+                LAST_MESSAGE="Gmail unreachable"
+            elif [ $GMESS -eq 1 ]; then
+                LAST_MESSAGE="1 new message"
+            elif [ ! $GMESS -eq 0 ]; then
+                LAST_MESSAGE="$GMESS new messages"
+            fi
+            echo -n "$LAST_MESSAGE" > "$(wmiir namespace)/.gmailmessage"
+        else
+            LAST_MESSAGE=$(cat "$(wmiir namespace)/.gmailmessage")
+        fi
+
+        [ ! -z "$LAST_MESSAGE" ] && BAR="$BAR $LAST_MESSAGE |"
+    fi
 
     # Temperature sensors, if available
     if [ ! -z $(which sensors) ]; then
@@ -163,6 +193,7 @@ Action status
 	echo "$WMII_NORMCOLORS" | wmiir create /rbar/status
 	while status | wmiir write /rbar/status; do
 		sleep 10
+        let GCOUNT=($GCOUNT+1)%30   # Only check e-mail every five minutes
 	done
 
 # Key Bindings
