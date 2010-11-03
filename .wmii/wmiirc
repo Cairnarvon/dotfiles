@@ -56,7 +56,20 @@ wmiir write /tagrules <<!
 
 # Status Bar Info
 status() {
-	echo -n $(sensors -A | awk '/^Core/{a = a " " $3} END{print a}') '|' $(uptime | sed 's/.*://; s/,//g') '|' $(date "+%a %b %d %H:%M")
+    BAR=""
+
+    # Temperature sensors, if available
+    if [ ! -z $(which sensors) ]; then
+    	BAR="$BAR $(sensors -A | awk '/^Core/{a = a " " $3} END{print a}') |"
+    fi
+
+    # System load
+    BAR="$BAR $(uptime | sed 's/.*://; s/,//g') |"
+
+    # Date and time
+    BAR="$BAR $(date "+%a %b %d %H:%M")"
+
+    echo -n $BAR
 }
 
 local_events() { true;}
