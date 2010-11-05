@@ -18,6 +18,10 @@ set softtabstop=4
 set shiftwidth=4
 set formatoptions+=t
 
+" Obnoxious whitespace should be visible
+set list
+set listchars=tab:▸\ 
+
 " Filetype associations
 au BufRead,BufNewFile *.cilk    set filetype=cilk
 au BufRead,BufNewFile *.codan   set filetype=codan
