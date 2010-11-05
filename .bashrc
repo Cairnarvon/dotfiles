@@ -50,6 +50,25 @@ fi
 PS2='\[\e[2m\]> \[\e[0m\]'
 
 
+# Fancy fancy for git repositories
+git.statusline ()
+{
+    CURRENT_BRANCH=$(git-branch --no-color 2>/dev/null | sed -n 's/^\* \(.*\)$/\1/p')
+
+    if [ ! -z "$CURRENT_BRANCH" ]; then
+        DOTS=$(git-status -q 2>/dev/null | \
+               awk 'BEGIN { ORS="" }                    \
+                    /^# Changes to be committed:$/      \
+                        { print "\033[1;34m●\033[0m " } \
+                    /^# Changed but not updated:$/      \
+                        { print "\033[1;31m●\033[0m " }')
+        echo -en "[ \033[1;33m$CURRENT_BRANCH\033[0m $DOTS] "
+    fi
+}
+
+PROMPT_COMMAND=git.statusline
+
+
 # Colours for ls and grep
 if [ "$TERM" != "dumb" ]; then
     eval "`dircolors -b`"
