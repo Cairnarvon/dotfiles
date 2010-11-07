@@ -20,6 +20,21 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
+# Fancy fancy for git repositories
+git.statusline ()
+{
+    CURRENT_BRANCH=$(git-branch --no-color 2>/dev/null | sed -n 's/^\* \(.*\)$/\1/p')
+
+    if [ ! -z "$CURRENT_BRANCH" ]; then
+        DOTS=$(git-status -q 2>/dev/null | \
+               awk 'BEGIN { ORS="" }                    \
+                    /^# Changes to be committed:$/      \
+                        { print "\\[\\e[1;34m\\]●\\[\\e[0m\\] " } \
+                    /^# Changed but not updated:$/      \
+                        { print "\\[\\e[1;31m\\]●\\[\\e[0m\\] " }')
+        echo -en "[ \\[\\e[1;33m\\]$CURRENT_BRANCH\\[\\e[0m\\] $DOTS] "
+    fi
+}
 
 # Prettier prompt
 
@@ -42,31 +57,15 @@ case "`hostname`" in
 esac
 
 if [ "`whoami`" == "root" ]; then
-    PS1='\n             ________\n     /\_/\  / \['$PS_COL'\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\n    ( ´-\`) <\n   /    |   \\\[________\e[A\e[8D\]'
+    PS1_PRE='\n             ________\n     /\_/\  / \['$PS_COL'\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\] '
+    PS1_POST='\n    ( ´-\`) <\n   /    |   \\\[________\e[A\e[8D\]'
+    PROMPT_COMMAND='PS1=$PS1_PRE$(git.statusline)$PS1_POST'
 else
-    PS1='[\[\e[2m\]$(date +%H:%M)\[\e[0m\]] \['$PS_COL'\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\$ '
+    PS1_BASE='[\[\e[2m\]$(date +%H:%M)\[\e[0m\]] \['$PS_COL'\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\$ '
+    PROMPT_COMMAND='PS1=$(git.statusline)$PS1_BASE'
 fi
 
 PS2='\[\e[2m\]> \[\e[0m\]'
-
-
-# Fancy fancy for git repositories
-git.statusline ()
-{
-    CURRENT_BRANCH=$(git-branch --no-color 2>/dev/null | sed -n 's/^\* \(.*\)$/\1/p')
-
-    if [ ! -z "$CURRENT_BRANCH" ]; then
-        DOTS=$(git-status -q 2>/dev/null | \
-               awk 'BEGIN { ORS="" }                    \
-                    /^# Changes to be committed:$/      \
-                        { print "\033[1;34m●\033[0m " } \
-                    /^# Changed but not updated:$/      \
-                        { print "\033[1;31m●\033[0m " }')
-        echo -en "[ \033[1;33m$CURRENT_BRANCH\033[0m $DOTS] "
-    fi
-}
-
-PROMPT_COMMAND=git.statusline
 
 
 # Colours for ls and grep
