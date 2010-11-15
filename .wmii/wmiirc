@@ -190,6 +190,7 @@ Action status
 		sleep 10
 	done
 Action gmailchecker
+    set +xv
     if [ -e ~/.gmail ]; then
         export GMAIL_USER=$(head -n 1 ~/.gmail)
         export GMAIL_PASS=$(tail -n 1 ~/.gmail)
