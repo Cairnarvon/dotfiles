@@ -32,7 +32,7 @@ git.statusline ()
                         { print "\\[\\e[1;34m\\]●\\[\\e[0m\\] " } \
                     /^# Changed but not updated:$/      \
                         { print "\\[\\e[1;31m\\]●\\[\\e[0m\\] " }')
-        echo -en "[ \\[\\e[1;33m\\]$CURRENT_BRANCH\\[\\e[0m\\] $DOTS] "
+        echo -n "[ \\[\\e[1;33m\\]$CURRENT_BRANCH\\[\\e[0m\\] $DOTS] "
     fi
 }
 
