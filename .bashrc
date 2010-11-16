@@ -23,6 +23,8 @@ fi
 # Fancy fancy for git repositories
 git.statusline ()
 {
+    [ -z "$(which git)" ] && return
+
     CURRENT_BRANCH=$(git-branch --no-color 2>/dev/null | sed -n 's/^\* \(.*\)$/\1/p')
 
     if [ ! -z "$CURRENT_BRANCH" ]; then
