@@ -55,6 +55,7 @@ case "`hostname`" in
         ;;
     lfser)
         PS_COL="\e[1;36m"   # cyan!
+        ;;
     *)
         PS_COL="\e[1;34m"   # blue!
         ;;
