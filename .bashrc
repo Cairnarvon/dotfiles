@@ -25,10 +25,10 @@ git.statusline ()
 {
     [ -z "$(which git)" ] && return
 
-    CURRENT_BRANCH=$(git-branch --no-color 2>/dev/null | sed -n 's/^\* \(.*\)$/\1/p')
+    CURRENT_BRANCH=$(git branch --no-color 2>/dev/null | sed -n 's/^\* \(.*\)$/\1/p')
 
     if [ ! -z "$CURRENT_BRANCH" ]; then
-        DOTS=$(git-status -q 2>/dev/null | \
+        DOTS=$(git status -q 2>/dev/null | \
                awk 'BEGIN { ORS="" }                    \
                     /^# Changes to be committed:$/      \
                         { print "\\[\\e[1;34m\\]●\\[\\e[0m\\] " } \
