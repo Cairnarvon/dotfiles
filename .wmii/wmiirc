@@ -62,13 +62,13 @@ status() {
     BAR=""
 
     # Battery charge if available and unplugged
-    if [ ! -z $(which acpi) ]; then
+    if [ -n "$(which acpi)" ]; then
         BATT=$(acpi | awk '/discharging/{print "Batt.", $4, $5, "left |"}')
-        [ ! -z "$BATT" ] && BAR="$BAR $BATT"
+        [ -n "$BATT" ] && BAR="$BAR $BATT"
     fi
 
     # Temperature sensors, if available
-    if [ ! -z $(which sensors) ]; then
+    if [ -n "$(which sensors)" ]; then
         BAR="$BAR $(sensors -A | awk '/^Core/{a = a " " $3} END{print a}') |"
     fi
 
