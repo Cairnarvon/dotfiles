@@ -52,6 +52,9 @@ wmiir write /colrules <<!
 wmiir write /tagrules <<!
 /MPlayer|VLC/ -> ~
 /Gimp.*/ -> ~
+/.*chrome/ -> 2
+/.*chromium.*/ -> 2
+/pidgin/ -> 3
 !
 
 # Status Bar Info
