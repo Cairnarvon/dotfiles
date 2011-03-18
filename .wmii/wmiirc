@@ -20,7 +20,7 @@ export WMII_NORMCOLORS='#f6f3e8 #242424 #303030'
 export WMII_FOCUSCOLORS='#000000 #cae682 #303030'
 
 export WMII_BACKGROUND='#000000'
-export WMII_FONT='-*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*'
+export WMII_FONT='-*-terminus-medium-r-*--12-*-*-*-*-*-*-1'
 
 set -- $(echo $WMII_NORMCOLORS $WMII_FOCUSCOLORS)
 export WMII_TERM="gnome-terminal"       # ( ´A`)
@@ -63,7 +63,7 @@ status() {
 
     # Battery charge if available and unplugged
     if [ -n "$(which acpi)" ]; then
-        BATT=$(acpi | awk '/discharging/{print "Batt.", $4, $5, "left |"}')
+        BATT=$(acpi 2>/dev/null | awk '/discharging/{print "Batt.", $4, $5, "left |"}')
         [ -n "$BATT" ] && BAR="$BAR $BATT"
     fi
 
@@ -90,11 +90,11 @@ gmailchecker() {
                      https://mail.google.com/mail/feed/atom | \
                 sed -n 's#<fullcount>\([0-9]*\)</fullcount>#\1#p')
     
-        if [ -z $GMESS ]; then
+        if [ -z "$GMESS" ]; then
             echo -n "$WMII_NORMCOLORS Gmail unreachable" | wmiir create /rbar/gmail
-        elif [ $GMESS -eq 1 ]; then
+        elif [ "$GMESS" -eq 1 ]; then
             echo -n "$WMII_NORMCOLORS 1 new message" | wmiir create /rbar/gmail
-        elif [ ! $GMESS -eq 0 ]; then
+        elif [ ! "$GMESS" -eq 0 ]; then
             echo -n "$WMII_NORMCOLORS $GMESS new messages" | wmiir create /rbar/gmail
         else
             wmiir remove /rbar/gmail 2>/dev/null
@@ -301,8 +301,7 @@ wmiir write /ctl <<!
 	grabmod $MODKEY
 	border 1
 !
-# xsetroot -solid "$WMII_BACKGROUND" &
-feh --bg-center /home/cairnarvon/erika.jpg &
+feh --bg-scale /home/cairnarvon/erika.jpg &
 
 # Misc
 progsfile="$(wmiir namespace)/.proglist"
