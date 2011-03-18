@@ -2,9 +2,9 @@
 
 all: install
 
-install: vimrc bashrc git wmiirc
+install: vimrc bashrc git X
 
-vimrc bashrc gitconfig gitignore:
+vimrc bashrc gitconfig gitignore xinitrc Xresources:
 	@[ -e ~/.$@ ] && rm -i ~/.$@ || true
 	@[ ! -e ~/.$@ ] \
 		&& (ln -fs "`pwd`/.$@" ~/.$@ && echo ".$@ installed.") \
@@ -18,3 +18,5 @@ wmiirc:
 	@[ ! -e ~/.wmii/wmiirc ] \
 		&& (ln -fs "`pwd`/.wmii/wmiirc" ~/.wmii/wmiirc && echo ".wmii/wmiirc installed.") \
 		|| echo ".wmii/wmiirc skipped."
+
+X: xinitrc Xresources wmiirc

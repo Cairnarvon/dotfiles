@@ -23,7 +23,11 @@ export WMII_BACKGROUND='#000000'
 export WMII_FONT='-*-terminus-medium-r-*--12-*-*-*-*-*-*-1'
 
 set -- $(echo $WMII_NORMCOLORS $WMII_FOCUSCOLORS)
-export WMII_TERM="gnome-terminal"       # ( ´A`)
+if [ "$(hostname)" = "fermi" ]; then
+    export WMII_TERM="lxterm"
+else
+    export WMII_TERM="gnome-terminal"       # ( ´A`)
+fi
 
 if ! test -d "${WMII_CONFPATH%%:*}"; then
     mkdir "${WMII_CONFPATH%%:*}"
