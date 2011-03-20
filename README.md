@@ -6,6 +6,8 @@ There's not much here, but someone asked, and it's useful to have these availabl
 >     cd ~/.dotfiles
 >     make
 
-This will automatically create symlinks in the necessary places, prompting to remove your old crap as needed. If you want install individual files, use `make` targets `vimrc`, `bashrc`, `git` (or `gitconfig` and `gitignore` separately), or `X` (or `wmiirc`, `xinitrc`, and `Xresources` separately) as desired.
+This will automatically create symlinks in the necessary places, prompting to remove your old crap as needed. If you want install individual files, use `make` targets `vimrc`, `bashrc`, `git` (or `gitconfig` and `gitignore` separately), `X` (or `wmiirc`, `xinitrc`, and `Xresources` separately), or `canto` as desired.
 
 Suggestions or requests welcome.
+
+(`wmii` is a [tiling window manager](http://wmii.suckless.org/). `canto` is a [`curses` RSS reader](http://codezen.org/canto/)).
