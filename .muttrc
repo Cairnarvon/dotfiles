@@ -1,0 +1,117 @@
+set from = "cairnarvon@gmail.com"
+set realname = "Koen Crolla"
+
+source ~/.mutt/private  # Contains imap_pass and smtp_pass
+source ~/.mutt/aliases
+
+set alias_file = ~/.mutt/aliases
+
+set editor = vim
+set visual = vim
+
+set charset = utf-8
+
+set header_cache = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+set move = no
+set certificate_file = ~/.mutt/certificates
+
+set sort = reverse-threads
+set sort_aux = last-date-received
+set pager_index_lines = 6
+set pager_context = 1
+unset markers
+
+
+# IMAP crap
+
+set imap_user = "cairnarvon"
+set folder = "imaps://imap.gmail.com:993"
+set postponed = "+[Gmail]/Drafts"
+set spoolfile = "+INBOX"
+set timeout = 60
+set mail_check = 30
+set imap_keepalive = 900
+
+
+# SMTP crap
+
+set smtp_url = "smtp://cairnarvon@smtp.gmail.com:587"
+
+
+# PGP crap
+
+set pgp_sign_as = 0x108483CC
+
+set pgp_autosign
+set pgp_replyencrypt
+
+set pgp_decode_command = "gpg %?p?--passphrase-fd 0? --batch -o - %f"
+set pgp_decrypt_command = "gpg --passphrase-fd 0 --batch -o - %f"
+set pgp_verify_command = "gpg --batch -o - --verify %s %f"
+set pgp_verify_key_command = "gpg --batch --fingerprint --check-sigs %r"
+set pgp_good_sign = "^gpg: Good signature from"
+
+set pgp_clearsign_command = "gpg --batch -o - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
+set pgp_encrypt_only_command = "pgpewrap gpg --batch -q -o - --encrypt --textmode --armor --always-trust --encrypt-to %a -- -r %r -- %f"
+set pgp_encrypt_sign_command = "pgpewrap gpg --passphrase-fd 0 --batch -q --textmode -o - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to %a -- -r %r -- %f"
+set pgp_sign_command = "gpg --batch -o - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
+
+set pgp_export_command = "gpg --export --armor %r"
+set pgp_import_command = "gpg --import -v %f"
+set pgp_list_pubring_command = "gpg --batch --with-colons --list-keys %r" 
+set pgp_list_secring_command = "gpg --batch --with-colons --list-secret-keys %r"
+
+my_hdr X-PGP-Key: http://cairnarvon.rotahall.org/pubkey.asc
+
+
+# Some macroi
+
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+macro index gs "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to Sent Mail"
+macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+
+
+# Colours! Caution: may cause eye-bleeding.
+
+color normal        white           default
+color status        brightyellow    blue
+color search        brightwhite     red
+color message       brightyellow    default
+color error         brightyellow    red
+ 
+color indicator     black           white
+color tree          brightred       default
+color index         brightyellow    default ~F  # Important
+color index         brightgreen     default ~N  # New
+color index         magenta         default ~T  # Tagged
+color index         brightgreen     default ~U  # Unread
+color index         brightblue      default ~D  # Deleted
+ 
+color header        brightwhite     default ^Subject: 
+color header        brightyellow    default ^From:
+color header        brightyellow    default ^To: 
+color header        green           default ^Date: 
+color header        green           default ^In-Reply-To:
+color header        green           default ^X-PGP-Key:
+color hdrdefault    cyan            default
+ 
+color body          brightwhite     default "[a-z]+://[^ ]+"
+color body          brightwhite     default [-a-z_0-9.]+@[-a-z_0-9.]+
+color signature     cyan            default
+color attachment    blue            default
+ 
+color bold          brightwhite     default
+color underline     brightwhite     default
+ 
+color quoted        red             default
+color quoted1       yellow          default
+color quoted2       green           default
+color quoted3       blue            default
+color quoted4       red             default
+color quoted5       yellow          default
+color quoted6       green           default
+color quoted7       blue            default
+color quoted8       red             default
+color quoted9       yellow          default
