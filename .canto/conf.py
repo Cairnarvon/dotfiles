@@ -61,6 +61,7 @@ add("http://scienceblogs.com/tetrapodzoology/index.xml")
 # /prog/ and related
 add("http://chrisdone.com/blog/feed/rss2/",     tags=[None, "/prog/"])
 add("http://blog.desudesudesu.org/?feed=rss2",  tags=[None, "/prog/"])
+add("http://j.rigelseven.com/rsst.xml",         tags=[None, "/prog/"])
 add("http://leahculver.com/feed/",              tags=[None, "/prog/"])
 add("http://collison.ie/blog/feed",             tags=[None, "/prog/"])
 add("http://feeds.feedburner.com/AngrySummerQuietFall", tags=["Shii"])
