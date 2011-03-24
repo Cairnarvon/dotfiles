@@ -76,8 +76,10 @@ PS2='\[\e[2m\]> \[\e[0m\]'
 # Colours for ls and grep
 if [ "$TERM" != "dumb" ]; then
     eval "`dircolors -b`"
-    alias ls='ls --color=auto'
+    alias ls='ls --color=auto --group-directories-first -x'
     alias grep='grep --color'
+else
+    alias ls='ls --group-directories-first -x'
 fi
 
 # Environment variablies
