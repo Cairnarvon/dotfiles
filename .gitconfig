@@ -35,3 +35,6 @@
 [user]
     name = Cairnarvon
     email = cairnarvon@gmail.com
+
+[alias]
+    amend = commit --amend -C HEAD
