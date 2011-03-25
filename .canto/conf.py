@@ -45,21 +45,22 @@ add("http://blog.associatie.kuleuven.be/tinekemps/feed/")
 
 # Pharyngula and #pharyngula
 add("http://scienceblogs.com/pharyngula/index.xml")
-add("http://skatje.com/?feed=rss2")
+add("http://lacrimae-rerum.org/?feed=rss2")
 add("http://scienceonlooker.blogspot.com/rss.xml", tags=["cactaur"])
 add("http://missivesfromthefrontallobe.blogspot.com/feeds/posts/default?alt=rss",
     tags=["klbadger"])
 add("http://wockets.org/?feed=rss", tags=["Nerull"])
 add("http://greedygreedyalgorithms.blogspot.com/feeds/posts/default?alt=rss")
 
-# Other ScienceBlogs and things
+# Other ScienceBlogs and science blogs and things
 add("http://scienceblogs.com/erv/index.xml")
 add("http://whyevolutionistrue.wordpress.com/feed/")
 add("http://scienceblogs.com/deltoid/index.xml")
 add("http://scienceblogs.com/tetrapodzoology/index.xml")
+add("http://www.badscience.net/feed/")
 
 # /prog/ and related
-add("http://chrisdone.com/blog/feed/rss2/",     tags=[None, "/prog/"])
+add("http://chrisdone.com/rss.xml",             tags=[None, "/prog/"])
 add("http://blog.desudesudesu.org/?feed=rss2",  tags=[None, "/prog/"])
 add("http://j.rigelseven.com/rsst.xml",         tags=[None, "/prog/"])
 add("http://leahculver.com/feed/",              tags=[None, "/prog/"])
@@ -87,7 +88,6 @@ add("http://rijmenants.blogspot.com/feeds/posts/default?alt=rss")
 # People still make webcomics for some reason
 add("http://www.rsspect.com/rss/qwantz.xml")
 add("http://www.smbc-comics.com/rss.php")
-add("http://www.legorobotcomics.com/legorobot_rss.xml")
 add("http://oglaf.com/feeds/rss/")
 
 # Misc.
