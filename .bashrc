@@ -73,6 +73,40 @@ fi
 PS2='\[\e[2m\]> \[\e[0m\]'
 
 
+# Gmail notifier thing
+gmailchecker()
+{
+    # If Gmail can be reached and has unread messages, display a notification
+
+    local GMAIL_USER=$(head -n 1 ~/.gmail 2>/dev/null)
+    local GMAIL_PASS=$(tail -n 1 ~/.gmail 2>/dev/null)
+
+    if [ ! -z "$GMAIL_USER" ]; then
+        GMESS=$(wget -q -O - --http-user="$GMAIL_USER"        \
+                             --http-password="$GMAIL_PASS"    \
+                     https://mail.google.com/mail/feed/atom | \
+                sed -n 's#<fullcount>\([0-9]*\)</fullcount>#\1#p')
+
+        if [ -z "$GMESS" ]; then
+            echo -n "Gmail unreachable" | wmiir create /rbar/gmail
+        elif [ "$GMESS" -eq 1 ]; then
+            echo -n "1 new message" | wmiir create /rbar/gmail
+        elif [ ! "$GMESS" -eq 0 ]; then
+            echo -n "$GMESS new messages" | wmiir create /rbar/gmail
+        else
+            wmiir remove /rbar/gmail 2>/dev/null
+        fi
+    else
+        echo "~/.gmail does not exist. Status bar not updated."
+    fi
+}
+
+muttnupdate()
+{
+    mutt $@
+    gmailchecker
+}
+
 # Colours for ls and grep
 if [ "$TERM" != "dumb" ]; then
     eval "`dircolors -b`"
@@ -99,6 +133,7 @@ alias py2html='pygmentize -f html -O full,style=native'
 alias backup='rsync -a --delete --progress ~'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias progscrape='progscrape --json --verify-trips --aborn --progress-bar ~/prog.db'
+alias mutt='muttnupdate'
 
 # bash-builtins(7)
 if [ -f /etc/bash_completion ]; then
