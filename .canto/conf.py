@@ -45,7 +45,6 @@ add("http://blog.associatie.kuleuven.be/tinekemps/feed/")
 
 # Pharyngula and #pharyngula
 add("http://scienceblogs.com/pharyngula/index.xml")
-add("http://lacrimae-rerum.org/?feed=rss2")
 add("http://scienceonlooker.blogspot.com/rss.xml", tags=["cactaur"])
 add("http://missivesfromthefrontallobe.blogspot.com/feeds/posts/default?alt=rss",
     tags=["klbadger"])
