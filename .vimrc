@@ -29,4 +29,6 @@ au BufRead,BufNewFile *.codan   set filetype=codan
 " Automatically make hashbang scripts executable 
 au BufWritePost * if getline(1) =~ "^#!" | silent execute "!chmod +x <afile>" | endif
 
-colorscheme ir_black
+if $TERM == "xterm"
+    colorscheme ir_black
+endif
