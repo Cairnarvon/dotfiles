@@ -28,6 +28,7 @@ never_discard("unread")
 never_discard("Rota Hall")
 never_discard("/prog/")
 
+default_rate(60)
 
 # Rota Hall
 add("http://cairnarvon.rotahall.org/feed/",     tags=[None, "Rota Hall"])
