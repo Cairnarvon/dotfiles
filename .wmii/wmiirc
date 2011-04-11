@@ -42,11 +42,11 @@ wmiir write /colrules <<!
 # Tagging Rules
 wmiir write /tagrules <<!
 /MPlayer|VLC/ -> ~
-/Gimp.*/ -> ~
+/Gimp.*/ -> ~+9
 /.*chrome/ -> 2
-/.*chromium.*/ -> 2
-/pidgin/ -> 3
-/terminal/ -> sel
+/chromium/ -> 2
+/terminal|pidgin/ -> sel
+/qemu|kvm/ -> ~
 !
 
 # Status Bar Info
@@ -293,7 +293,7 @@ wmiir write /ctl <<!
 	grabmod $MODKEY
 	border 1
 !
-feh --bg-scale /home/cairnarvon/erika.jpg &
+feh --bg-scale $HOME/erika.jpg &
 
 # Misc
 progsfile="$(wmiir namespace)/.proglist"
