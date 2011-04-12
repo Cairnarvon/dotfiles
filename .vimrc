@@ -27,6 +27,9 @@ au BufRead,BufNewFile *.cilk    set filetype=cilk
 au BufRead,BufNewFile *.codan   set filetype=codan
 au BufRead,BufNewFile *.mako    set filetype=mako
 
+" Don't undent python comments
+au BufEnter           *.py      :inoremap # X<C-H>#
+
 " Automatically make hashbang scripts executable 
 au BufWritePost * if getline(1) =~ "^#!" | silent execute "!chmod +x <afile>" | endif
 
