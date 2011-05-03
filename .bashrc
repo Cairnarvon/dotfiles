@@ -118,8 +118,9 @@ fi
 
 # Environment variablies
 export HISTCONTROL=ignoreboth
+export HISTSIZE=1000000
 export KOPIPEDIR=~/.kopipe      # kopipe(1)
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/sbin:/usr/sbin:/sbin:/bin:~/bin
+export PATH=~/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/sbin:/usr/sbin:/sbin:/bin
 export CDPATH=.:~:~/codans
 export EDITOR=vim
 export GIT_EDITOR=vim
