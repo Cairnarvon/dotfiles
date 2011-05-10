@@ -12,6 +12,12 @@ vimrc bashrc gitconfig gitignore xinitrc Xresources muttrc ghci:
 
 git: gitconfig gitignore
 
+vim: vimrc
+	@[ -d ~/.$@ ] && rm -ri ~/.$@ || true
+	@[ ! -e ~/.$@ ] \
+		&& (ln -fs "`pwd`/.$@" ~/.$@ && echo ".$@ installed.") \
+		|| echo ".$@ skipped."
+
 wmiirc:
 	@[ ! -d ~/.wmii ] && mkdir ~/.wmii || true
 	@[ -e ~/.wmii/wmiirc ] && rm -i ~/.wmii/wmiirc || true
