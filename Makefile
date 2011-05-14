@@ -2,7 +2,7 @@
 
 all: install
 
-install: vimrc bashrc muttrc git X canto ghci
+install: vim bashrc muttrc git X canto ghci
 
 vimrc bashrc gitconfig gitignore xinitrc Xresources muttrc ghci:
 	@[ -e ~/.$@ ] && rm -i ~/.$@ || true
