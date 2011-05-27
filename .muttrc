@@ -22,6 +22,8 @@ set pager_index_lines = 6
 set pager_context = 1
 unset markers
 
+auto_view text/html
+
 
 # IMAP crap
 

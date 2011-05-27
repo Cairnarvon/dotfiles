@@ -2,9 +2,9 @@
 
 all: install
 
-install: vim bashrc muttrc git X canto ghci
+install: vim bashrc muttrc mailcap git X canto ghci
 
-vimrc bashrc gitconfig gitignore xinitrc Xresources muttrc ghci:
+vimrc bashrc gitconfig gitignore xinitrc Xresources muttrc mailcap ghci:
 	@[ -e ~/.$@ ] && rm -i ~/.$@ || true
 	@[ ! -e ~/.$@ ] \
 		&& (ln -fs "`pwd`/.$@" ~/.$@ && echo ".$@ installed.") \
