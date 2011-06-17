@@ -2,10 +2,10 @@ import os
 from canto.extra import *
 
 if os.getenv("TERM") == "linux":
-    link_handler('elinks "%u"', text=True)
+    link_handler('www-browser "%u"', text=True)
 else:
-    link_handler('google-chrome "%u"')
-    image_handler('google-chrome "%u"')
+    link_handler('x-www-browser "%u"')
+    image_handler('x-www-browser "%u"')
     select_hook = set_xterm_title
     end_hook = clear_xterm_title
 
