@@ -32,7 +32,7 @@ git.statusline ()
                awk 'BEGIN { ORS="" }                    \
                     /^# Changes to be committed:$/      \
                         { print "\\[\\e[1;34m\\]●\\[\\e[0m\\] " } \
-                    /^# Changes not staged for commit:$/ \
+                    /^# (Changes not staged for commit|Changed but not updated):$/ \
                         { print "\\[\\e[1;31m\\]●\\[\\e[0m\\] " }')
         echo -n "[ \\[\\e[1;33m\\]$CURRENT_BRANCH\\[\\e[0m\\] $DOTS] "
     fi
