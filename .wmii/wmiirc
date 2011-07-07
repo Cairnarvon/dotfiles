@@ -293,7 +293,6 @@ wmiir write /ctl <<!
 	grabmod $MODKEY
 	border 1
 !
-feh --bg-scale $HOME/erika.jpg &
 
 # Misc
 progsfile="$(wmiir namespace)/.proglist"
