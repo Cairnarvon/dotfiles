@@ -135,6 +135,7 @@ alias backup='rsync -a --delete --progress ~'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias progscrape='progscrape --json --verify-trips --aborn --progress-bar ~/prog.db'
 alias mutt='muttnupdate'
+alias how='man'
 
 # bash-builtins(7)
 if [ -f /etc/bash_completion ]; then
