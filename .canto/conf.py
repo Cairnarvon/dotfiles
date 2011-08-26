@@ -45,7 +45,8 @@ add("http://menoname.wordpress.com/feed/")
 add("http://blog.associatie.kuleuven.be/tinekemps/feed/")
 
 # Pharyngula and #pharyngula
-add("http://scienceblogs.com/pharyngula/index.xml")
+add("http://scienceblogs.com/pharyngula/index.xml",             tags=["Pharyngula"])
+add("http://feeds.feedburner.com/freethoughtblogs/pharyngula",  tags=["Pharyngula"])
 add("http://scienceonlooker.blogspot.com/rss.xml", tags=["cactaur"])
 add("http://missivesfromthefrontallobe.blogspot.com/feeds/posts/default?alt=rss",
     tags=["klbadger"])
@@ -57,7 +58,6 @@ add("http://scienceblogs.com/erv/index.xml")
 add("http://whyevolutionistrue.wordpress.com/feed/")
 add("http://scienceblogs.com/deltoid/index.xml")
 add("http://scienceblogs.com/tetrapodzoology/index.xml")
-add("http://www.badscience.net/feed/")
 
 # /prog/ and related
 add("http://chrisdone.com/rss.xml",             tags=[None, "/prog/"])
@@ -71,7 +71,6 @@ add("http://feeds.feedburner.com/AngrySummerQuietFall", tags=["Shii"])
 add("http://blog.myspace.com/blog/rss.cfm?friendID=18382968", tags=["Laura"])
 add("http://alterisego.wordpress.com/feed/")
 add("http://feeds.feedburner.com/andyfreeland")
-add("http://twicemice.com/feed/")
 add("http://headinjurytheater.blogspot.com/feeds/posts/default?alt=rss")
 
 # Local politics
