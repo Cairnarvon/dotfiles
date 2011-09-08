@@ -125,6 +125,7 @@ export CDPATH=.:~:~/codans
 export EDITOR=vim
 export GIT_EDITOR=vim
 export GIT_PAGER=less
+export CFLAGS="-march=native -O2 -pipe"
 
 # Misc aliases
 alias mv='mv -i'
