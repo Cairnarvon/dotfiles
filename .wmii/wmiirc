@@ -76,7 +76,7 @@ status() {
 # Gmail notifier
 gmailchecker() {
     # If Gmail can be reached and has unread messages, display a notification
-    if [ ! -z "$GMAIL_USER" ]; then
+    if [ ! -z "$GMAIL_USER" ] && [ ! -z "$GMAIL_PASS" ]; then
         GMESS=$(wget -q -O - --http-user="$GMAIL_USER"        \
                              --http-password="$GMAIL_PASS"    \
                      https://mail.google.com/mail/feed/atom | \
@@ -195,6 +195,9 @@ Action gmailchecker
     if [ -e ~/.gmail ]; then
         export GMAIL_USER=$(head -n 1 ~/.gmail)
         export GMAIL_PASS=$(tail -n 1 ~/.gmail)
+    elif [ -e ~/.muttrc ] && [ -e ~/.mutt/private ]; then
+        GMAIL_USER="$(grep imap_user ~/.muttrc | awk -F = '{gsub(/^[ \t]*"?/, "", $NF); gsub(/"?[ \t]*$/, "", $NF); print $NF}')@gmail.com"
+        GMAIL_PASS=$(grep imap_pass ~/.mutt/private | awk -F = '{gsub(/^[ \t]*"?/, "", $NF); gsub(/"?[ \t]*$/, "", $NF); print $NF}')
     fi
     while gmailchecker; do
         sleep 300

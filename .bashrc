@@ -78,8 +78,13 @@ gmailchecker()
 {
     # If Gmail can be reached and has unread messages, display a notification
 
-    local GMAIL_USER=$(head -n 1 ~/.gmail 2>/dev/null)
-    local GMAIL_PASS=$(tail -n 1 ~/.gmail 2>/dev/null)
+    if [ -e ~/.gmail ]; then
+        local GMAIL_USER=$(head -n 1 ~/.gmail 2>/dev/null)
+        local GMAIL_PASS=$(tail -n 1 ~/.gmail 2>/dev/null)
+    elif [ -e ~/.muttrc ] && [ -e ~/.mutt/private ]; then
+        local GMAIL_USER="$(grep imap_user ~/.muttrc | awk -F = '{gsub(/^[ \t]*"?/, "", $NF); gsub(/"?[ \t]*$/, "", $NF); print $NF}')@gmail.com"
+        local GMAIL_PASS=$(grep imap_pass ~/.mutt/private | awk -F = '{gsub(/^[ \t]*"?/, "", $NF); gsub(/"?[ \t]*$/, "", $NF); print $NF}')
+    fi
 
     if [ ! -z "$GMAIL_USER" ]; then
         GMESS=$(wget -q -O - --http-user="$GMAIL_USER"        \
@@ -97,7 +102,7 @@ gmailchecker()
             wmiir remove /rbar/gmail 2>/dev/null
         fi
     else
-        echo "~/.gmail does not exist. Status bar not updated."
+        echo "No Gmail credentials found. Status bar not updated."
     fi
 }
 
