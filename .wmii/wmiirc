@@ -61,7 +61,7 @@ status() {
 
     # Temperature sensors, if available
     if [ -n "$(which sensors)" ]; then
-        BAR="$BAR $(sensors -A | awk '/^Core/{a = a " " $3} END{print a}') |"
+        BAR="$BAR $(sensors -A | awk '/^temp/{a = a " " $2} END{print a}') |"
     fi
 
     # System load
