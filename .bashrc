@@ -53,7 +53,7 @@ case "`hostname`" in
     einstein)
         PS_COL="\e[1;0m"    # white!
         ;;
-    lfser)
+    ulam)
         PS_COL="\e[1;36m"   # cyan!
         ;;
     *)
