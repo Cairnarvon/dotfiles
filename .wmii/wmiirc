@@ -55,7 +55,7 @@ status() {
 
     # Battery charge if available and unplugged
     if [ -n "$(which acpi)" ]; then
-        BATT=$(acpi 2>/dev/null | awk '/discharging/{print "Batt.", $4, $5, "left |"}')
+        BATT=$(acpi 2>/dev/null | awk '/discharging/i{print "Batt.", $4, $5, "left |"}')
         [ -n "$BATT" ] && BAR="$BAR $BATT"
     fi
 
