@@ -40,7 +40,6 @@ add("http://qow.rotahall.org/?feed=rss2",       tags=[None, "Rota Hall"])
 
 # ScienceBlogs and science blogs and things
 add("http://feeds.feedburner.com/freethoughtblogs/pharyngula")
-add("http://scienceblogs.com/erv/index.xml")
 add("http://whyevolutionistrue.wordpress.com/feed/")
 add("http://scienceblogs.com/deltoid/index.xml")
 add("http://scienceblogs.com/tetrapodzoology/index.xml")
@@ -73,6 +72,8 @@ add("http://greedygreedyalgorithms.blogspot.com/feeds/posts/default?alt=rss")
 add("http://www.rsspect.com/rss/qwantz.xml")
 add("http://www.smbc-comics.com/rss.php")
 add("http://oglaf.com/feeds/rss/")
+add("http://awkwardzombie.com/awkward.php")
+add("http://www.hejibits.com/feed/")
 
 # Misc.
 add("http://feeds.arstechnica.com/arstechnica/BAaf")
