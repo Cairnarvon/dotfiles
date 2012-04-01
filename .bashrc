@@ -114,6 +114,7 @@ muttnupdate()
 
 # Colours for ls and grep
 if [ "$TERM" != "dumb" ]; then
+    export TERM=xterm-256color
     eval "`dircolors -b`"
     alias ls='ls --color=auto --group-directories-first -x'
     alias grep='grep --color'
@@ -142,6 +143,7 @@ alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias progscrape='progscrape --json --verify-trips --aborn --progress-bar ~/prog.db'
 alias mutt='muttnupdate'
 alias how='man'
+alias tree='tree --dirsfirst'
 
 # bash-builtins(7)
 if [ -f /etc/bash_completion ]; then
