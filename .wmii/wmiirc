@@ -16,8 +16,8 @@ noticetimeout=5
 noticebar=/rbar/!notice
 
 # Colors tuples: "<text> <background> <border>"
-export WMII_NORMCOLORS='#f6f3e8 #242424 #303030'
-export WMII_FOCUSCOLORS='#000000 #cae682 #303030'
+export WMII_NORMCOLORS='#ffffff #000000 #303030'
+export WMII_FOCUSCOLORS='#000000 #cccccc #303030'
 
 export WMII_BACKGROUND='#000000'
 export WMII_FONT='-*-terminus-medium-r-*--12-*-*-*-*-*-*-1'
