@@ -125,6 +125,7 @@ fi
 # Environment variablies
 export HISTCONTROL=ignoreboth
 export HISTSIZE=1000000
+export HISTIGNORE=ls:lst:lsz
 export KOPIPEDIR=~/.kopipe      # kopipe(1)
 export PATH=~/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/sbin:/usr/sbin:/sbin:/bin
 export CDPATH=.:~:~/codans
@@ -144,6 +145,8 @@ alias progscrape='progscrape --json --verify-trips --aborn --progress-bar ~/prog
 alias mutt='muttnupdate'
 alias how='man'
 alias tree='tree --dirsfirst'
+alias lst='ls -tlhr'
+alias lsz='ls -Slhr'
 
 # bash-builtins(7)
 if [ -f /etc/bash_completion ]; then
