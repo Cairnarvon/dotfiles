@@ -70,10 +70,10 @@ add("http://greedygreedyalgorithms.blogspot.com/feeds/posts/default?alt=rss")
 
 # People still make webcomics for some reason
 add("http://www.rsspect.com/rss/qwantz.xml")
-add("http://www.smbc-comics.com/rss.php")
 add("http://oglaf.com/feeds/rss/")
 add("http://awkwardzombie.com/awkward.php")
 add("http://www.hejibits.com/feed/")
+add("http://www.rsspect.com/rss/vagrant.xml")
 
 # Misc.
 add("http://feeds.arstechnica.com/arstechnica/BAaf")
