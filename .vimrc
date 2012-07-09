@@ -34,4 +34,18 @@ au BufEnter           *.py      :inoremap # X<C-H>#
 " Automatically make hashbang scripts executable 
 au BufWritePost * if getline(1) =~ "^#!" | silent execute "!chmod +x <afile>" | endif
 
+" Get ;p to open a Python shell and load the current file as a module
+function! PyShellLoad()
+    if @% !~# '\.py$'
+        echo 'Not editing a Python module.'
+        return
+    endif
+    let l:module = substitute(expand('%:t'), '\.py$', '', '')
+    let l:wd = expand('%:p:h')
+    execute '!PYTHONPATH="$PYTHONPATH:' . l:wd .
+          \ '" python -i -c "print \">>> import ' . l:module .
+          \ '\"; import ' . l:module . '"'
+endfunction
+nmap <silent> ;p :call PyShellLoad()<CR>
+
 colorscheme ir_black
