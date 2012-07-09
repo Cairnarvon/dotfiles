@@ -26,6 +26,7 @@ set listchars=tab:▸\
 au BufRead,BufNewFile *.cilk    set filetype=cilk
 au BufRead,BufNewFile *.codan   set filetype=codan
 au BufRead,BufNewFile *.mako    set filetype=mako
+au BufRead,BufNewFile Makefile  set noexpandtab
 
 " Don't undent python comments
 au BufEnter           *.py      :inoremap # X<C-H>#
