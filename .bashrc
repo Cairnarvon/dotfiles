@@ -7,6 +7,7 @@ shopt -u interactive_comments
 shopt -s histappend
 shopt -s histverify
 shopt -s shift_verbose          # Only because I write a lot of bash scripts
+shopt -s no_empty_cmd_completion
 
 # ↑ and ↓ behave more usefully with partial commands
 bind '"\e[A": history-search-backward'
