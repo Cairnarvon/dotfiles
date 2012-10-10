@@ -45,7 +45,7 @@ case "`hostname`" in
     feynman)
         PS_COL="\e[1;31m"   # red!
         ;;
-    madoka)
+    mazur)
         PS_COL="\e[1;32m"   # green!
         ;;
     fermi)
