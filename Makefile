@@ -33,3 +33,11 @@ canto:
 		|| echo ".canto/conf.py skipped."
 
 X: xinitrc Xresources wmiirc
+
+ssh:
+	@[ ! -d ~/.ssh ] && mkdir ~/.ssh || true
+	@[ -e ~/.ssh/config ] && rm -i ~/.ssh/config || true
+	@[ ! -e ~/.ssh/config ] \
+		&& (ln -fs "`pwd`/.ssh/config" ~/.ssh/config && echo ".ssh/config installed.") \
+		|| echo ".ssh/config skipped."
+	@cat .ssh/authorized_keys >>~/.ssh/authorized_keys && echo ".ssh/authorized_keys installed."
