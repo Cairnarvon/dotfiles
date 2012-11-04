@@ -31,6 +31,9 @@ au BufRead,BufNewFile Makefile  set noexpandtab
 " Don't undent python comments
 au BufEnter           *.py      :inoremap # X<C-H>#
 
+" Two-space indent for Ruby
+au BufEnter           *.rb      set sts=2 | set sw=2
+
 " Automatically make hashbang scripts executable 
 au BufWritePost * if getline(1) =~ "^#!" | silent execute "!chmod +x <afile>" | endif
 
