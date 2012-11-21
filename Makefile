@@ -2,7 +2,7 @@
 
 all: install
 
-install: vim bashrc muttrc mailcap git X canto ghci login_conf ssh
+install: vim bashrc muttrc mailcap git X canto ghci login_conf ssh gopherrc
 
 vimrc bashrc gitconfig gitignore xinitrc Xresources muttrc mailcap ghci login_conf gopherrc:
 	@[ -e ~/.$@ ] && rm -i ~/.$@ || true
