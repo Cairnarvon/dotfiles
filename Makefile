@@ -4,7 +4,7 @@ all: install
 
 install: vim bashrc muttrc mailcap git X canto ghci login_conf ssh
 
-vimrc bashrc gitconfig gitignore xinitrc Xresources muttrc mailcap ghci login_conf:
+vimrc bashrc gitconfig gitignore xinitrc Xresources muttrc mailcap ghci login_conf gopherrc:
 	@[ -e ~/.$@ ] && rm -i ~/.$@ || true
 	@[ ! -e ~/.$@ ] \
 		&& (ln -fs "`pwd`/.$@" ~/.$@ && echo ".$@ installed.") \

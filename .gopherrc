@@ -1,0 +1,8 @@
+map: text/plain,builtin,
+map: text/html,w3m %s,
+map: message/rfc822,builtin,
+map: image/gif,gthumb %s,
+map: image/jpeg,gthumb %s,
+map: image/png,gthumb %s,
+
+SearchBolding: yes
