@@ -36,20 +36,16 @@ add("http://terras.rotahall.org/?feed=rss2",    tags=[None, "Rota Hall"])
 add("http://citywomenwithdolls.tumblr.com/rss", tags=[None, "Rota Hall"])
 add("http://coren.rotahall.org/?feed=rss2",     tags=[None, "Rota Hall"])
 add("http://saythings.rotahall.org/?feed=rss2", tags=[None, "Rota Hall"])
-add("http://qow.rotahall.org/?feed=rss2",       tags=[None, "Rota Hall"])
 
 # ScienceBlogs and science blogs and things
 add("http://feeds.feedburner.com/freethoughtblogs/pharyngula")
 add("http://whyevolutionistrue.wordpress.com/feed/")
-add("http://scienceblogs.com/deltoid/index.xml")
-add("http://scienceblogs.com/tetrapodzoology/index.xml")
 
 # /prog/ and related
 add("http://chrisdone.com/rss.xml",             tags=[None, "/prog/"])
 add("http://blog.desudesudesu.org/?feed=rss2",  tags=[None, "/prog/"])
 add("http://j.rigelseven.com/rsst.xml",         tags=[None, "/prog/"])
 add("http://leahculver.com/feed/",              tags=[None, "/prog/"])
-add("http://collison.ie/blog/feed",             tags=[None, "/prog/"])
 
 # Misc. Internets
 add("http://alterisego.wordpress.com/feed/")
@@ -65,8 +61,7 @@ add("http://scienceblogs.com/goodmath/index.xml")
 add("http://pentadecathlon.com/lifeNews/index.xml")
 add("http://feeds.feedburner.com/lbrandy")
 add("http://feeds.feedburner.com/schneier/fulltext")
-add("http://rijmenants.blogspot.com/feeds/posts/default?alt=rss")
-add("http://greedygreedyalgorithms.blogspot.com/feeds/posts/default?alt=rss")
+add("http://prog21.dadgum.com/atom.xml")
 
 # People still make webcomics for some reason
 add("http://www.rsspect.com/rss/qwantz.xml")
@@ -77,4 +72,3 @@ add("http://www.rsspect.com/rss/vagrant.xml")
 
 # Misc.
 add("http://feeds.arstechnica.com/arstechnica/BAaf")
-add("http://richarddawkins.net/feed.php")
