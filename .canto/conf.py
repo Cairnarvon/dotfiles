@@ -39,7 +39,6 @@ add("http://saythings.rotahall.org/?feed=rss2", tags=[None, "Rota Hall"])
 
 # ScienceBlogs and science blogs and things
 add("http://feeds.feedburner.com/freethoughtblogs/pharyngula")
-add("http://whyevolutionistrue.wordpress.com/feed/")
 
 # /prog/ and related
 add("http://chrisdone.com/rss.xml",             tags=[None, "/prog/"])
