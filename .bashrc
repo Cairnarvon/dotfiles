@@ -57,6 +57,9 @@ case "`hostname`" in
     ulam)
         PS_COL="\e[1;36m"   # cyan!
         ;;
+    raspberrypi)
+        PS_COL="\e[1;35m"   # magenta!
+        ;;
     *)
         PS_COL="\e[1;34m"   # blue!
         ;;
