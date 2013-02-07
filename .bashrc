@@ -118,8 +118,6 @@ muttnupdate()
 
 # Colours for ls and grep
 if [ "$TERM" != "dumb" ]; then
-    export TERM=xterm-256color
-
     if [ "`uname`" == "Linux" ]; then
         eval "`dircolors -b`"
         alias ls='ls --color=auto --group-directories-first -x'

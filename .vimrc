@@ -8,6 +8,7 @@ set hlsearch		" Highlight all search results
 set matchpairs+=<:>
 set mouse=a
 set pastetoggle=<F9>
+set t_Co=256
 
 " Formatting
 set autoindent
