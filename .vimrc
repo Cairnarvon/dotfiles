@@ -36,6 +36,9 @@ au BufEnter           *.py      :inoremap # X<C-H>#
 " Two-space indent for Ruby
 au BufEnter           *.rb      set sts=2 | set sw=2
 
+" Three-space indent for reStructuredText (seriously)
+au BufEnter           *.rst     set sts=3 | set sw=3
+
 " Automatically make hashbang scripts executable 
 au BufWritePost * if getline(1) =~ "^#!" | silent execute "!chmod +x <afile>" | endif
 
