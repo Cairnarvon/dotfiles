@@ -1,10 +1,10 @@
 " General
-syntax on			" Syntax highlighting
+syntax on           " Syntax highlighting
 set background=dark
-set number			" Line numbers
+set number          " Line numbers
 set ruler
-set showmatch		" Highlight matching brace
-set hlsearch		" Highlight all search results
+set showmatch       " Highlight matching brace
+set hlsearch        " Highlight all search results
 set matchpairs+=<:>
 set mouse=a
 set pastetoggle=<F9>
