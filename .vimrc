@@ -57,3 +57,7 @@ endfunction
 nmap <silent> ;p :call PyShellLoad()<CR>
 
 colorscheme ir_black
+
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
