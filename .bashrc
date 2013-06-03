@@ -24,17 +24,13 @@ fi
 # Fancy fancy for git repositories
 git.statusline ()
 {
-    [ -z "$(which git)" ] && return
-
-    CURRENT_BRANCH=$(git branch --no-color 2>/dev/null | sed -n 's/^\* \(.*\)$/\1/p')
+    CURRENT_BRANCH=$(git symbolic-ref HEAD 2>/dev/null | cut -d / -f 3-)
 
     if [ ! -z "$CURRENT_BRANCH" ]; then
-        DOTS=$(git status 2>/dev/null | \
-               awk 'BEGIN { ORS="" }                    \
-                    /^# Changes to be committed:$/      \
-                        { print "\\[\\e[1;34m\\]●\\[\\e[0m\\] " } \
-                    /^# (Changes not staged for commit|Changed but not updated):$/ \
-                        { print "\\[\\e[1;31m\\]●\\[\\e[0m\\] " }')
+        DOTS=$(git status --porcelain 2>/dev/null | cut -b -2 | uniq | \
+               awk 'BEGIN { ORS="" }
+                    /^ M$/ { print "\\[\\e[1;34m\\]●\\[\\e[0m\\] " }
+                    /^M $/ { print "\\[\\e[1;31m\\]●\\[\\e[0m\\] " }')
         echo -n "[ \\[\\e[1;33m\\]$CURRENT_BRANCH\\[\\e[0m\\] $DOTS] "
     fi
 }
