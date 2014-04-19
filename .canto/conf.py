@@ -54,14 +54,12 @@ add("http://headinjurytheater.blogspot.com/feeds/posts/default?alt=rss")
 
 # Local politics
 add("http://yelloman1.blogspot.com/feeds/posts/default?alt=rss")
-add("http://www.kosmopolito.org/feed/")
 
 # I guess math and computers and things
 add("http://scienceblogs.com/goodmath/index.xml")
 add("http://pentadecathlon.com/lifeNews/index.xml")
 add("http://feeds.feedburner.com/lbrandy")
 add("http://feeds.feedburner.com/schneier/fulltext")
-add("http://prog21.dadgum.com/atom.xml")
 
 # People still make webcomics for some reason
 add("http://www.rsspect.com/rss/qwantz.xml")
