@@ -90,6 +90,7 @@ gmailchecker()
         GMESS=$(wget -q -O - --http-user="$GMAIL_USER"        \
                              --http-password="$GMAIL_PASS"    \
                      https://mail.google.com/mail/feed/atom | \
+                grep -o '<fullcount>[0-9]*</fullcount>' |     \
                 sed -n 's#<fullcount>\([0-9]*\)</fullcount>#\1#p')
 
         if [ -z "$GMESS" ]; then
