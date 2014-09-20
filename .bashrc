@@ -152,6 +152,7 @@ alias how='man'
 alias tree='tree --dirsfirst'
 alias lst='ls -tlhr'
 alias lsz='ls -Slhr'
+alias javar='java -jar'
 
 # bash-builtins(7)
 if [ -f /etc/bash_completion ]; then
