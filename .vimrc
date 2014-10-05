@@ -28,6 +28,7 @@ au BufRead,BufNewFile *.cilk    set filetype=cilk
 au BufRead,BufNewFile *.codan   set filetype=codan
 au BufRead,BufNewFile *.mako    set filetype=mako
 au BufRead,BufNewFile *.rkt,*.rktl  set filetype=racket
+au BufRead,BufNewFile *.ash     set filetype=cpp
 au BufRead,BufNewFile Makefile  set noexpandtab
 
 " Don't undent python comments
