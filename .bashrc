@@ -38,7 +38,7 @@ git.statusline ()
 # Prettier prompt
 
 case "`hostname`" in
-    feynman)
+    banach)
         PS_COL="\e[1;31m"   # red!
         ;;
     mazur)
