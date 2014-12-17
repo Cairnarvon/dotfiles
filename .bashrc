@@ -144,7 +144,7 @@ alias cp='cp -i'
 alias vi='vim'
 alias py2html='pygmentize -f html -O full,style=native'
 alias backup='rsync -a --delete --progress ~'
-alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
+alias sprunge="curl -F 'sprunge=<-' http://paste.readsicp.org"
 alias progscrape='progscrape --json --verify-trips --aborn --progress-bar ~/prog.db'
 alias progsearch='progsearch -i ~/.prog.db.index'
 alias mutt='muttnupdate'
