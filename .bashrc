@@ -153,6 +153,8 @@ alias tree='tree --dirsfirst'
 alias lst='ls -tlhr'
 alias lsz='ls -Slhr'
 alias javar='java -jar'
+alias cal='cal -3'
+alias foremost='foremost -T'
 
 # bash-builtins(7)
 if [ -f /etc/bash_completion ]; then
