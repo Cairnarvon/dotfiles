@@ -33,9 +33,8 @@ default_rate(60)
 # Rota Hall
 add("http://cairnarvon.rotahall.org/feed/",     tags=[None, "Rota Hall"])
 add("http://terras.rotahall.org/?feed=rss2",    tags=[None, "Rota Hall"])
-add("http://citywomenwithdolls.tumblr.com/rss", tags=[None, "Rota Hall"])
+add("http://mjfreeze.tumblr.com/rss",           tags=[None, "Rota Hall"])
 add("http://coren.rotahall.org/?feed=rss2",     tags=[None, "Rota Hall"])
-add("http://saythings.rotahall.org/?feed=rss2", tags=[None, "Rota Hall"])
 
 # ScienceBlogs and science blogs and things
 add("http://feeds.feedburner.com/freethoughtblogs/pharyngula")
@@ -45,7 +44,7 @@ add("http://freethoughtblogs.com/brutereason/feed/")
 add("http://chrisdone.com/rss.xml",             tags=[None, "/prog/"])
 add("http://blog.desudesudesu.org/?feed=rss2",  tags=[None, "/prog/"])
 add("http://j.rigelseven.com/rsst.xml",         tags=[None, "/prog/"])
-add("http://leahculver.com/feed/",              tags=[None, "/prog/"])
+add("http://blog.leahculver.com/rss.xml",       tags=[None, "/prog/"])
 
 # Misc. Internets
 add("http://alterisego.wordpress.com/feed/")
